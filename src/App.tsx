@@ -1,3 +1,5 @@
+import { NinjasPage } from "./pages/NinjasPage";
+
 export default function App() {
-  return <div>Hello world</div>;
+  return <NinjasPage />;
 }

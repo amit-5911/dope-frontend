@@ -9,5 +9,12 @@
     "paths": {
       "@/*": ["./src/*"]
     }
-  }
+  },
+  "exclude": [
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/__tests__/**",
+    "vitest.config.ts",
+    "node_modules"
+  ]
 }

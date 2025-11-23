@@ -18,7 +18,6 @@ import { memo } from "react";
 import { checkboxColumnId } from "./constants";
 
 export function NinjasTable({ table }: { table: ITable<Ninja> }) {
-  console.log("ninjas Table");
   return (
     <Table>
       <TableHeader>

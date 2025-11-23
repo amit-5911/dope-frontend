@@ -1,36 +1,36 @@
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { NinjasPage } from "./NinjasPage";
 import "@testing-library/jest-dom";
-import { vi } from "vitest";
 
 const mockNinjas = [
   {
     id: "1",
     name: "Naruto Uzumaki",
     location: "Konoha Village",
-    health: "healthy",
+    health: "Healthy",
     power: 95,
   },
   {
     id: "2",
     name: "Sasuke Uchiha",
     location: "Hidden Leaf",
-    health: "injured",
+    health: "Injured",
     power: 92,
   },
   {
     id: "3",
     name: "Kakashi Hatake",
     location: "Konoha Village",
-    health: "healthy",
+    health: "Healthy",
     power: 88,
   },
   {
     id: "4",
     name: "Sakura Haruno",
     location: "Medical Ward",
-    health: "critical",
+    health: "Critical",
     power: 85,
   },
 ];
@@ -54,6 +54,7 @@ describe("NinjasTable", () => {
     vi.clearAllMocks();
 
     vi.mocked(useNinjasData).mockReturnValue({
+      //@ts-expect-error:""
       data: mockNinjas,
       status: "success",
       error: null,
