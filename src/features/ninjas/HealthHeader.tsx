@@ -5,14 +5,13 @@ import { memo, useState } from "react";
 
 import {
   DropdownMenu,
+  DropdownMenuCheckboxItem,
   DropdownMenuContent,
-  DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Funnel } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Checkbox } from "@/components/ui/checkbox";
 
 export const HealthHeader = memo(
   ({ column }: { column: Column<Ninja, unknown> }) => {
@@ -75,23 +74,19 @@ export const HealthHeader = memo(
         />
         <DropdownMenuContent className="p-2 w-48">
           {uniqueValues.map((value) => (
-            <DropdownMenuItem
+            <DropdownMenuCheckboxItem
               key={value}
-              className="flex items-center gap-2 py-1 cursor-pointer"
-              onClick={(e) => {
-                e.preventDefault();
-                toggleValue(value);
-              }}
+              onCheckedChange={() => toggleValue(value)}
+              checked={selected.includes(value)}
               aria-label={
                 selected.includes(value)
                   ? `${value} filter is active, space to remove`
                   : `Apply filter for ${value}`
               }
             >
-              <Checkbox checked={selected.includes(value)} />
               <span className="flex-1">{value}</span>
               <span className=" text-sm">{facetedValues.get(value)}</span>
-            </DropdownMenuItem>
+            </DropdownMenuCheckboxItem>
           ))}
 
           {uniqueValues.length === 0 && (

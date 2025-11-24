@@ -126,7 +126,7 @@ export const NinjasPage = () => {
   }
 
   return (
-    <div className="max-w-[1200px] py-10 m-auto">
+    <div className="max-w-[1200px] py-10 flex flex-col m-auto h-dvh">
       <div className="flex items-center justify-between py-4">
         <DebouncedSearch
           onChange={handleSearchChange}
@@ -138,7 +138,7 @@ export const NinjasPage = () => {
         <SubmitNinjas table={table} />
       </div>
       {isPending && <p>Updating Table...</p>}
-      <div className="h-[700px] rounded-md border  ">
+      <div className="flex-1 min-h-0 rounded-md border  overflow-clip">
         <NinjasTable table={table} />
       </div>
     </div>
